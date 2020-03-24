@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/digitalfox/pydici.png?branch=master)](https://travis-ci.org/digitalfox/pydici)
+[![Build Status](https://travis-ci.org/aych.png?branch=master)](https://travis-ci.org/aych)
 
 Pydici is a software for consulting/IT services company to manage:
 - commercial leads workflow (from business detection to sales and simple CRM)
@@ -13,8 +13,9 @@ It is written in Python using the Django framework.
 Pydici is available under the GNU Affero Public License v3 or newer (AGPL 3+).
 http://www.gnu.org/licenses/agpl-3.0.html
 
-# AUTHOR
+# AUTHOR(S)
 
+Jean Wallet (Creditbox@protonmail.com)
 Sébastien Renard (Sebastien.Renard@digitalfox.org).
 
 
