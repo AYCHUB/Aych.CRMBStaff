@@ -28,24 +28,24 @@ To install all python prerequisites, please do the following: pip install -r req
 ## Detailed Installation
 
 Drop source code in a directory readable by your apache user
-   git clone https://github.com/digitalfox/pydici.git
+   git clone https://github.com/aychub/aych.crmbstaff
 
 Create a virtual env in a directory readable by your apache user and activate it
    virtual-env venv
    . venv/bin/activate
 
 Install prerequisites :
-   pip install -r <path to pydici source code>/requirements.txt
+   pip install -r <path to aych.crmbstaff source code>/requirements.txt
 
 Setup your favorite database (mysql/mariaDB or postgresql) and create a schema/base (with UTF-8 character set please) with a valid user that can create/alter/select/delete/update its objects.
 
-Configure your database in pydici/settings.py. Look at django docs to understand the various database options.
+Configure your database in aych.crmbstaff/settings.py. Look at django docs to understand the various database options.
 
 Create tables with :
 
     ./manage.py migrate
 
-Generate a new secret key with ./manage.py generate_secret_key and put it in pydici/settings.py
+Generate a new secret key with ./manage.py generate_secret_key and put it in aych.crmbstaff/settings.py
 
 Collect static files with ./manage.py collectstatic
 
@@ -55,15 +55,15 @@ Setup your apache virtual env:
 - activate ssl
 - active mod_expires
 - add Alias to /media and /static
-- define auth backend. By default, pydici is designed to work with an http front end authentication. Look at https://docs.djangoproject.com/en/dev/howto/auth-remote-user/
+- define auth backend. By default, aych.crmbstaff is designed to work with an http front end authentication. Look at https://docs.djangoproject.com/en/dev/howto/auth-remote-user/
 
 Setup in cron (or your favorite scheduler) the followings tasks (adapt the schedule and options to your needs):
 
-    5 2  * * *      <path to pydici>/venv/python -W ignore::DeprecationWarning <path to pydici>/manage.py clearsessions                    # Purge expired sessions in database
-    0 6 1 * *       <path to pydici>/venv/python -W ignore::DeprecationWarning <path to pydici>/batch/timesheet_check.py                   # Warn for incomplete and surbooking timesheet for past month
-    0 6 2-31 * *    <path to pydici>/venv/python -W ignore::DeprecationWarning <path to pydici>/batch/timesheet_check.py -w                # Warn for incomplete timesheet for past month
-    0 6 21-31 * *   <path to pydici>/venv/python -W ignore::DeprecationWarning <path to pydici>/batch/timesheet_check.py -m current -d 20  # Warn for incomplete timesheet on current month for 20th first days
-    0 * * * *       <path to pydici>/venv/python -W ignore::DeprecationWarning <path to pydici>/manage.py process_tasks -d 3600            # Process tasks for 1 hour
+    5 2  * * *      <path to aych.crmbstaff>/venv/python -W ignore::DeprecationWarning <path to pydici>/manage.py clearsessions                    # Purge expired sessions in database
+    0 6 1 * *       <path to aych.crmbstaff>/venv/python -W ignore::DeprecationWarning <path to pydici>/batch/timesheet_check.py                   # Warn for incomplete and surbooking timesheet for past month
+    0 6 2-31 * *    <path to aych.crmbstaff>/venv/python -W ignore::DeprecationWarning <path to pydici>/batch/timesheet_check.py -w                # Warn for incomplete timesheet for past month
+    0 6 21-31 * *   <path to aych.crmbstaff>/venv/python -W ignore::DeprecationWarning <path to pydici>/batch/timesheet_check.py -m current -d 20  # Warn for incomplete timesheet on current month for 20th first days
+    0 * * * *       <path to aych.crmbstaff>/venv/python -W ignore::DeprecationWarning <path to pydici>/manage.py process_tasks -d 3600            # Process tasks for 1 hour
 
 
 ## Updating an existing installation
@@ -79,35 +79,35 @@ Your installation uses South if there is a `south_migrationhistory`
 
 2. Your installation uses South:
 
-    Firstly you need to checkout the last pydici version using South "pydici/master", then run these commands:
+    Firstly you need to checkout the last aych.crmbstaff version using South "aych.crmbstaff/master", then run these commands:
 
         ./manage.py syncdb
         ./manage.py migrate
 
-    After that you can update to to a newer version of pydici then :
+    After that you can update to to a newer version of aych.crmbstaff then :
 
         ./manage.py migrate auth
         ./manage.py migrate contenttypes
-        ./manage.py migrate --fake  # for internal pydici apps
+        ./manage.py migrate --fake  # for internal aych.crmbstaff apps
 
     Once this is done, future updates will be handled as situation #1.
 
 3. Your installation does not use Django Migration or South yet.
 
-    Firstly you need to checkout the last pydici version using South "pydici/master", then run these commands:
+    Firstly you need to checkout the last aych.crmbstaff version using South "aych.crmbstaff/master", then run these commands:
 
         ./manage.py syncdb
         ./manage.py migrate --all 0001 --fake
         ./manage.py migrate
 
-    After that you can update to to a newer version of pydici by running:
+    After that you can update to to a newer version of aych.crmbstaff by running:
 
         ./manage.py migrate --fake
 
     Once this is done, future updates will be handled just like situation #1.
 
 ## Notes about scikit learn
-Scikit learn is a machine learning framework for python. It is an optional Pydici deps that can predict leads tags and state.
+Scikit learn is a machine learning framework for python. It is an optional aych.crmbstaff deps that can predict leads tags and state.
 Some comments:
 
 - You need to install scikit-learn, numpy and scipy (pip install -r requirements-sklearn.txt)
@@ -131,4 +131,4 @@ On target:
     ./manage.py loaddata dump.json
 
 # Hosting, support, professional services, custom developpement
-See http://www.enioka.com/pydici-web/
+See https://aychub.blogspot.com/
