@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/aych.png?branch=master)](https://travis-ci.org/aych)
 
-Pydici is a software for consulting/IT services company to manage:
+Aych.Crmbstaff is a software for consulting and technology services company to manage:
 - commercial leads workflow (from business detection to sales and simple CRM)
 - workload schedule to forecast people activity
 - operation management: timesheet, margin control, billing
