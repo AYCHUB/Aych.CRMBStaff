@@ -10,7 +10,7 @@ It is written in Python using the Django framework.
 
 # LICENSE
 
-Pydici is available under the GNU Affero Public License v3 or newer (AGPL 3+).
+Aych.Crmbstaff is available under the GNU Affero Public License v3 or newer (AGPL 3+).
 http://www.gnu.org/licenses/agpl-3.0.html
 
 # AUTHOR(S)
@@ -21,7 +21,7 @@ Sébastien Renard (Sebastien.Renard@digitalfox.org).
 
 # INSTALLATION
 
-Pydici can be installed as any Django project. Just drop the code somewhere
+Aych.Crmbstaff can be installed as any Django project. Just drop the code somewhere
 and setup Apache.
 
 To install all python prerequisites, please do the following: pip install -r requirements.txt. It is strongly advised to use a virtual env.
