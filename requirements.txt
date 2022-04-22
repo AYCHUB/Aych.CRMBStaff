@@ -14,4 +14,4 @@ WeasyPrint==48
 django-weasyprint==0.5.4
 bleach==3.1.1
 Markdown==3.1.1
-pypdf2==1.26.0
+pypdf2==1.27.5
